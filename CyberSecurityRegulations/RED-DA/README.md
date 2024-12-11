@@ -75,6 +75,16 @@ Below table aims at guiding through which EFR32 variants and what capabilities c
 
 Some features will however depend also on which communication protocol is being used (please refer to next section for details)
 
+### Devices capable of RED-DA Compliance
+
+| EFR32xG2xA | EFR32xG2xB | EFR32xG22/27/29 | EFR32xG22 | EFR32xG22E (As for Series 1) |
+| ---------- | ---------- | --------------- | --------- | ---------------------------- |
+| Yes*       | Yes        | Yes*            | Yes*      | No (See details below)       |
+
+*Devices without Secure Vault High require developers to implement required features based on ARM Trustzone. Implementation varies based on the Communication Software Stack being used
+
+### Requirement based feature documentation
+
 | Cybersecurity item | EFR32xG2xA                                                                                                                                                                                                                                                                                                                                                     | EFR32xG2xB                                                                                                                                                                                                                                                                                                                                                                         | EFR32xG22/27/29                                                                                                                                                                                                                                                                                                                                                  | EFR32xG22E                                                                                                                                                                                                                                   | Comments                                                                                                                                                                                                                                                     |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1. a.              | Yes ([AN1218](https://www.silabs.com/documents/public/application-notes/an1218-secure-boot-with-rtsl.pdf) )                                                                                                                                                                                                                                                       | Yes ([AN1218](https://www.silabs.com/documents/public/application-notes/an1218-secure-boot-with-rtsl.pdf) )                                                                                                                                                                                                                                                                           | Yes ([AN1218](https://www.silabs.com/documents/public/application-notes/an1218-secure-boot-with-rtsl.pdf) )                                                                                                                                                                                                                                                         | Yes ([AN1218](https://www.silabs.com/documents/public/application-notes/an1218-secure-boot-with-rtsl.pdf) )                                                                                                                                     | Firmware updates may require additional storage space (i.e. external Flash memory)<br />Despite Gecko Bootloader does support Firmware Update, developpers must ensure the communication protocol used also supports means to securely provide new images  |
@@ -98,6 +108,8 @@ Some features will however depend also on which communication protocol is being 
 
 ## Protocol based RED-DA compliance guidance
 
+### Requirement based feature documentation
+
 The table below covers how each protocols cover the corresponding items
 
 | Cybersecurity item | Zigbee                                                                                                                                                                                                        | BLE | OpenThread | Proprietary | Comments |
@@ -106,3 +118,13 @@ The table below covers how each protocols cover the corresponding items
 | 4. a.              | Zigbee R23 Protocol Standards                                                                                                                                                                                 |     |            |             |          |
 | 4. b.              | Zigbee R23 Protocol Standards                                                                                                                                                                                 |     |            |             |          |
 | 7. a.              | OTA Implmentation provided (AN1384)                                                                                                                                                                           |     |            |             |          |
+
+### Software Stack specific documentation
+
+Below are pointers to documentation explaining how customers can implment required features by themselves
+
+#### Trustzone Secure Storage with SL_Zigbee
+
+#### Trustzone Secure Storage with SL_BLE
+
+#### Trustzone Secure Storage with OpenThread (Matter)
